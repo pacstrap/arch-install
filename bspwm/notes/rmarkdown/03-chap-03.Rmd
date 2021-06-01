@@ -1,0 +1,14 @@
+# My Box Plot Examples
+
+## Sub Heading Goes Here
+
+Exercitation laborum irure reprehenderit voluptate sit pariatur ut laboris labore pariatur exercitation laboris et elit mollit minim in irure occaecat ex est do tempor aute elit irure in irure officia minim enim cillum. Exercitation laborum irure reprehenderit voluptate sit pariatur ut laboris labore pariatur exercitation laboris et elit mollit minim in irure occaecat ex est do tempor aute elit irure in irure officia minim enim cillum.
+
+\newpage
+
+```{r, my_plots, out.width="50%", fig.ncol=2, fig.cap="My Example Box Plots", fig.subcap=c("Box Plot","Next Plot","Another Plot","Final Plot")}
+boxplot(1:10)
+boxplot(1:20)
+boxplot(1:30)
+boxplot(1:40)
+```

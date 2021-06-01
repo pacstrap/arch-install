@@ -1,0 +1,24 @@
+#!/usr/bin/sh
+
+confirm () { read -p "Proceed? (Enter) - (^C to abort)"; }
+
+printf "\e[1;32m$ pacman -S thunar tumbler thunar-volman thunar-archive-plugin thunar-media-tags-plugin\e[0m\n"; confirm;
+pacman -S thunar tumbler thunar-volman thunar-archive-plugin thunar-media-tags-plugin
+
+printf "\e[1;32m$ pacman -S deluge-gtk gnome-disk-utility\e[0m\n"; confirm;
+pacman -S deluge-gtk gnome-disk-utility
+
+printf "\e[1;32m$ pacman -S gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb\e[0m\n"; confirm;
+pacman -S gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
+
+printf "\e[1;32m$ pacman -S xarchiver binutils cpio gzip p7zip tar unrar unzip xz zip\e[0m\n"; confirm;
+pacman -S xarchiver binutils cpio gzip p7zip tar unrar unzip xz zip
+
+printf "\e[1;32m$ pacman -S ranger atool cpio ffmpegthumbnailer highlight mediainfo odt2txt w3m ueberzug\e[0m\n"; confirm;
+pacman -S ranger atool cpio ffmpegthumbnailer highlight mediainfo odt2txt w3m ueberzug
+
+printf "\e[1;32m$ pacman -S curl git libgit2 wget gparted gpart dosfstools mtools ntfs-3g rclone sshfs\e[0m\n"; confirm;
+pacman -S curl git libgit2 wget gparted gpart dosfstools mtools ntfs-3g rclone sshfs
+
+printf "\e[1;32m$ exit\e[0m\n"; confirm;
+exit       

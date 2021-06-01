@@ -1,0 +1,51 @@
+---
+title: "My Example RMarkdown Document"
+author: "First Last"
+date: "`r Sys.Date()`"
+documentclass: report
+classoption: "a4paper,12pt,twoside"
+geometry: "left=4cm,right=2cm,top=3cm,bottom=2cm"
+linestretch: 1.5
+header-includes:
+   - \usepackage[default]{sourcesanspro}
+   - \usepackage[T1]{fontenc}
+mainfont: SourceSansPro
+output: 
+  pdf_document:
+    extra_dependencies: subfig
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+bibliography: references.bib
+csl: apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, dev="cairo_pdf", message=FALSE, results="hide", fig.align="center", fig.show="hold")
+```
+
+# Introduction 
+
+```{r child = '01-chap-01.Rmd'}
+```
+
+```{r child = '02-chap-02.Rmd'}
+```
+
+```{r child = '03-chap-03.Rmd'}
+```
+
+# Conclusion
+
+# References {-}
+
+\begingroup
+\noindent
+\vspace{-2em}
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+\setlength{\parskip}{15pt}
+<div id="refs"></div>
+\endgroup
+
+# Appendix {-}

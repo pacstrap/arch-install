@@ -1,0 +1,7 @@
+###DELETE FILES
+
+rm -i -- *
+
+###DELETE FOLDERS
+
+rm -r -- *

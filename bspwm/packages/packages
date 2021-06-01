@@ -1,0 +1,94 @@
+#!/usr/bin/sh
+
+confirm () { read -p "Proceed? (Enter) - (^C to abort)"; }
+
+# fonts
+printf "\e[1;32m$ pacman -S awesome-terminal-fonts powerline-fonts ttf-font-awesome\e[0m\n"; confirm;
+pacman -S awesome-terminal-fonts powerline-fonts ttf-font-awesome
+
+# sudo pacman -S adobe-source-{code-pro-fonts,sans-pro-fonts,serif-pro-fonts} 
+# sudo pacman -S noto-fonts noto-fonts-{cjk,emoji,extra} 
+# sudo pacman -S cantarell-fonts gnu-free-fonts 
+# sudo pacman -S ttf-{bitstream-vera,caladea,carlito,dejavu,droid,fira-code,fira-mono,hack,inconsolata,jetbrains-mono}
+# sudo pacman -S ttf-{liberation,linux-libertine,opensans,roboto,roboto-mono,ubuntu-font-family}
+
+# celluloid
+printf "\e[1;32m$ pacman -S celluloid\e[0m\n"; confirm;
+pacman -S celluloid
+# --volume-max=500
+
+# lollypop
+printf "\e[1;32m$ pacman -S lollypop gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly kid3-qt libsecret youtube-dl\e[0m\n"; confirm;
+pacman -S lollypop gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly kid3-qt libsecret youtube-dl
+
+# easytag
+# sudo pacman -S easytag
+# xdg-mime default org.gnome.Nautilus.desktop inode/directory
+
+# mkvtoolnix-gui
+printf "\e[1;32m$ pacman -S mkvtoolnix-gui fdkaac\e[0m\n"; confirm;
+pacman -S mkvtoolnix-gui fdkaac
+
+# gimp & krita
+printf "\e[1;32m$ pacman -S gimp gutenprint krita ffmpeg kimageformats krita-plugin-gmic kseexpr libheif opencolorio1 poppler-qt5 python-pyqt5\e[0m\n"; confirm;
+pacman -S gimp gutenprint krita ffmpeg kimageformats krita-plugin-gmic kseexpr libheif opencolorio1 poppler-qt5 python-pyqt5
+
+# latexprintf "\e[1;32m$ pacman -S mkvtoolnix-gui fdkaac\e[0m\n"; confirm;
+printf "\e[1;32m$ pacman -S texlive-core...texmaker\e[0m\n"; confirm;
+pacman -S texlive-core texlive-bin texlive-bibtexextra texlive-fontsextra texlive-formatsextra texlive-latexextra biber dialog ed java-runtime texmaker
+
+# libreoffice-fresh
+# sudo pacman -S libreoffice-fresh libreoffice-fresh-en-gb jre-openjdk hunspell hunspell-en_GB hyphen hyphen-en libmythes mythes-en
+ 
+# discord
+printf "\e[1;32m$ pacman -S discord libpulse xdg-utils\e[0m\n"; confirm;
+pacman -S discord libpulse xdg-utils
+
+# musescore
+printf "\e[1;32m$ pacman -S musescore lame\e[0m\n"; confirm;
+pacman -S musescore lame
+# Exec=env PULSE_LATENCY_MSEC=30 mscore %F
+
+# python
+printf "\e[1;32m$ pacman -S python-pip python-pipenv python-virtualenv jupyterlab python-ipykernel\e[0m\n"; confirm;
+pacman -S python-pip python-pipenv python-virtualenv jupyterlab python-ipykernel
+
+# other packages
+printf "\e[1;32m$ pacman -S cmake gcc-fortran packagekit\e[0m\n"; confirm;
+pacman -S cmake gcc-fortran packagekit
+
+# exit
+printf "\e[1;32m$ exit\e[0m\n"; confirm;
+exit
+
+# games
+# sudo pacman -S extremetuxracer minetest supertux supertuxkart
+
+# kodi
+# sudo pacman -S kodi
+
+# hydrogen
+# sudo pacman -S hydrogen jack2 jack2-dbus realtime-privileges
+# sudo gpasswd -a skippy realtime
+
+# system tray icons
+# sudo pacman -S gnome-shell-extension-appindicator libappindicator-gtk2 libappindicator-gtk3
+
+# terminator
+# sudo pacman -S terminator python-nautilus 
+# git clone https://aur.archlinux.org/nautilus-open-any-terminal.git
+# com.github.stunkymonkey.nautilus-open-any-terminal
+
+# tilix
+# sudo pacman -S tilix python-nautilus 
+
+# materia-gtk-theme
+# sudo pacman -S materia-gtk-theme kvantum-theme-materia
+
+# gnome-shell-extensions
+# Gnome 40 UI Improvements
+# Pop Shell (Github)
+# Quake Mode
+# Transparent Shell
+# Workspaces Bar
+# X11 Gestures
