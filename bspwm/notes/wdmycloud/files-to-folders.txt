@@ -1,0 +1,32 @@
+while read FILE; do touch "${FILE}.mkv"; done < Movies.txt
+
+set -o errexit -o nounset
+
+###
+
+cd /DataVolume/shares/Assets
+cd /DataVolume/shares/KidsMovies
+cd /DataVolume/shares/KidsTVShows
+cd /DataVolume/shares/Movies
+cd /DataVolume/shares/Music
+cd /DataVolume/shares/Photos
+cd /DataVolume/shares/TVShows
+cd /DataVolume/shares/Videos
+
+###
+
+for file in *.mkv
+do
+    dir="${file%.mkv}"
+    mkdir -- "$dir"
+    mv -- "$file" "$dir"
+done
+
+###
+
+for file in *.mp4
+do
+    dir="${file%.mp4}"
+    mkdir -- "$dir"
+    mv -- "$file" "$dir"
+done

@@ -1,0 +1,32 @@
+#!/usr/bin/sh
+
+# desktop managers
+sudo systemctl enable gdm.service
+sudo systemctl enable lightdm.service
+
+# other services
+sudo systemctl enable acpid.service
+sudo systemctl enable sshd.service
+# sudo systemctl enable tlp.service
+
+sudo pacman -S ntp
+sudo systemctl enable ntpd.service
+
+# firewall
+sudo systemctl enable firewalld.service
+
+# firewalld settings via gui: services/ports/make permanent
+sudo firewall-config
+
+dhcpv6-client
+mdns
+samba-client
+ssh
+1025-65535 tcp
+1025-65535 udp
+
+sudo firewall-cmd --runtime-to-permanent
+
+# cockpit
+sudo systemctl enable cockpit.socket 
+# https://localhost:9090/

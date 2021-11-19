@@ -1,0 +1,122 @@
+#!/usr/bin/sh
+
+# yay
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+# Yay is not asking me to edit PKGBUILDS, and I don't like the diff menu! What can I do?
+yay --editmenu --nodiffmenu --save
+
+# light-locker-settings
+git clone https://aur.archlinux.org/light-locker-settings.git
+
+#polybar
+git clone https://aur.archlinux.org/polybar.git
+
+#nerd-fonts-iosevka
+git clone https://aur.archlinux.org/nerd-fonts-iosevka.git
+
+#ttf-icomoon-feather
+git clone https://aur.archlinux.org/ttf-icomoon-feather.git
+
+# dmenu-height
+git clone https://aur.archlinux.org/dmenu-height.git
+
+# qt5-styleplugins
+git clone https://aur.archlinux.org/qt5-styleplugins.git
+
+# enpass-bin
+git clone https://aur.archlinux.org/enpass-bin.git
+sudo pacman -S libxdg-basedir
+
+# google-chrome
+git clone https://aur.archlinux.org/google-chrome.git
+
+# rambox-pro-bin
+git clone https://aur.archlinux.org/rambox-pro-bin.git
+
+# masterpdfeditor
+git clone https://aur.archlinux.org/masterpdfeditor.git
+
+# insync
+git clone https://aur.archlinux.org/insync.git
+git clone https://aur.archlinux.org/insync-nautilus.git
+
+# tmux-bash-completion
+git clone https://aur.archlinux.org/tmux-bash-completion-git.git
+
+
+
+
+# i3lock-color
+git clone https://aur.archlinux.org/i3lock-color.git
+
+# adapta-nord
+git clone https://github.com/Adapta-Projects/Adapta-Nord.git
+
+# papirus-nord
+git clone https://github.com/Adapta-Projects/Papirus-Nord.git
+
+# papirus-linux-universe
+git clone https://github.com/Adapta-Projects/Papirus-Linux-Universe.git
+
+# lightdm-slick-greeter
+git clone https://aur.archlinux.org/lightdm-slick-greeter.git
+
+#/etc/lightdm/lightdm.conf
+[Seat:*]
+greeter-session=lightdm-slick-greeter
+user-session=i3
+
+#/etc/lightdm/slick-greeter.conf
+[Greeter]
+background-color=#4f194c
+theme-name=Yaru-dark
+icon-theme-name=Yaru
+activate-numlock=true
+background=
+show-hostname=false
+
+#lightdm-settings
+git clone https://aur.archlinux.org/lightdm-settings.git
+
+# amdgpu-pro-installer
+git clone https://aur.archlinux.org/amdgpu-pro-installer.git
+
+# audacity
+git clone https://aur.archlinux.org/audacity-wxgtk2.git
+
+# brave-bin
+git clone https://aur.archlinux.org/brave-bin.git
+sudo pacman -S chrome-gnome-shell libgnome-keyring libnotify
+git clone https://aur.archlinux.org/flashplugin.git
+
+# jabref
+git clone https://aur.archlinux.org/jabref.git
+git clone https://aur.archlinux.org/archlinux-java-run.git
+
+# pop-shell
+git clone https://github.com/pop-os/shell.git
+$ make local-install
+$ make uninstall
+# Open the "Keyboard Shortcuts" panel in GNOME Settings to select the "Reset All.." button in the header bar.
+
+# rstudio
+sudo pacman -S r
+git clone https://aur.archlinux.org/rstudio-desktop-bin.git
+# If you are experiencing segmentation fault, delete the ".rstudio-desktop" folder from your home directory then restart the program should fix the issue.
+
+# sublime-text
+git clone https://aur.archlinux.org/gconf.git
+git clone https://aur.archlinux.org/libgksu.git
+git clone https://aur.archlinux.org/gksu.git
+
+sudo pacman -S gtk2
+
+curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+sudo pacman -S sublime-text
+
+# touchegg
+git clone https://aur.archlinux.org/touchegg.git

@@ -1,0 +1,15 @@
+#!/usr/bin/sh
+
+confirm () { read -p "Proceed? (Enter) - (^C to abort)"; } 
+
+printf "\e[1;32m$ pacman -S zsh zsh-completions\e[0m\n"; confirm;
+pacman -S zsh zsh-completions
+
+printf "\e[1;32m$ pacman -S terminus-font\e[0m\n"; confirm;
+pacman -S terminus-font
+
+printf "\e[1;32m$ pacman -S asp...vim\e[0m\n"; confirm;
+pacman -S asp bash-completion bat cmatrix dnsmasq dnsutils htop inetutils mlocate neofetch pacman-contrib powerline tk tmux tree vim  
+
+printf "\e[1;32m$ exit\e[0m\n"; confirm;
+exit

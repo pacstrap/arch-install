@@ -1,0 +1,142 @@
+********************************************************************************
+# FACTORY RESET 4/40 SECONDS
+********************************************************************************
+
+welc0me
+
+********************************************************************************
+# SSH LOGIN/LOGOUT
+********************************************************************************
+
+$ ssh root@192.168.0.223
+$ <password>
+
+$ logout
+
+********************************************************************************
+# PERMISSIONS - DIRECTORIES
+********************************************************************************
+
+$ cd /DataVolume/shares/KidsMovies
+$ cd /DataVolume/shares/Movies
+$ cd /DataVolume/shares/TVShows
+
+********************************************************************************
+# PERMISSIONS - CHANGE OWNER TO admin & GROUP TO share
+********************************************************************************
+
+$ chown -R admin.share *
+
+********************************************************************************
+# PERMISSIONS - CHANGE ALL FILE PERMISSIONS
+********************************************************************************
+
+$ chmod -R 0644 *
+
+********************************************************************************
+# PERMISSIONS - CHANGE ALL THE DIRECTORIES TO 755 (-rwxr-xr-x)
+********************************************************************************
+
+$ find /DataVolume/shares/Movies -type d -exec chmod 755 {} \;
+
+********************************************************************************
+# PERMISSIONS - CHANGE ALL THE FILES TO 644 (-rw-r--r--)
+********************************************************************************
+
+$ find /DataVolume/shares/Movies -type f -exec chmod 644 {} \;
+
+********************************************************************************
+# RESTART SAMBA
+********************************************************************************
+
+$ /etc/init.d/samba restart
+
+********************************************************************************
+# DELETE FILES
+********************************************************************************
+
+$ rm -i -- *
+
+********************************************************************************
+# DELETE FOLDERS
+********************************************************************************
+
+$ rm -rf -- *
+
+********************************************************************************
+# OPTIMISATION - UNTIL NEXT REBOOT
+********************************************************************************
+
+$ /etc/init.d/wdmcserverd stop
+$ /etc/init.d/wdphotodbmergerd stop
+
+********************************************************************************
+# OPTIMISATION - PERMANENT STOP
+********************************************************************************
+
+$ update-rc.d wdphotodbmergerd disable
+$ update-rc.d wdmcserverd disable
+
+********************************************************************************
+# OPTIMISATION - DISABLE
+********************************************************************************
+
+$ cd /usr/local/wdmcserver/bin
+
+$ chmod 644 wdmcserver
+$ chmod 644 wdphotodbmerger
+$ chmod 644 convert
+
+********************************************************************************
+# OPTIMISATION - ENABLE
+********************************************************************************
+
+$ cd /usr/local/wdmcserver/bin
+
+$ chmod 755 wdmcserver
+$ chmod 755 wdphotodbmerger
+$ chmod 755 convert
+
+********************************************************************************
+# OPTIMISATION - STOP APPLE NETWORK SERVICE
+********************************************************************************
+
+$ service netatalk stop
+
+### If you want to “stop” it after a reboot enter...
+
+$ crontab -e
+
+### Scroll down in the shown editor and add as last “new” line the command...
+
+@reboot /bin/sh /etc/rc2.d/S50netatalk stop
+
+### Press ctrl-x -> y -> enter to save the changes
+
+********************************************************************************
+# OPTIMISATION - DISABLE IPV6 ON DEMAND
+********************************************************************************
+
+$ echo '/sbin/ifconfig eth0 inet6 del `ifconfig | /bin/grep "Scope:Link" |
+/bin/sed -e "s/^.*addr: //" -e "s/ .*//"` '> /bin/disableipv6
+
+### Modifies the permanent ipv6 configuration
+
+$ echo "echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6" >> /bin/disableipv6
+
+$ chmod a+x /bin/disableipv6
+
+5) Verify the script, enter ifconfig and verify the ipv6 address shown for the eth0 adapter.
+Now execute the disableipv6 command and verify with ifconfig that the ipv6 address is gone
+for eth0. If the ipv6 address is not gone or you received an error check the script with
+nano /bin/disableipv6
+
+6) If the ipv6 address was gone after executing the disableipv6 command execute crontab -e
+
+7) Scroll down in the shown editor and add as last “new” line the command:
+
+@reboot /bin/sh /bin/disableipv6
+
+8) Press ctrl-x -> y -> enter to save the changes
+
+9) Reboot the device by using the reboot command

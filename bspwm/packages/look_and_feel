@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+
+confirm () { read -p "Proceed? (Enter) - (^C to abort)"; }
+
+printf "\e[1;32m$ pacman -S gtk-engine-murrine gtk-engines inkscape optipng papirus-icon-theme qt5ct sassc\e[0m\n"; confirm;
+pacman -S gtk-engine-murrine gtk-engines inkscape optipng papirus-icon-theme qt5ct sassc
+
+#pacman -S kvantum-qt5
+
+printf "\e[1;32m$ exit\e[0m\n"; confirm;
+exit

@@ -1,0 +1,11 @@
+while read FILE; do touch "${FILE}.mkv"; done < Movies.txt
+while read FILE; do touch "${FILE}.mkv"; done < Movies2.txt
+
+while read FILE; do touch "${FILE}.mkv"; done < KidsMovies.txt
+
+while read FILE; do touch "${FILE}.mkv"; done < Bing.txt
+
+while read FILE; do touch "${FILE}.mkv"; done < season01.txt
+while read FILE; do touch "${FILE}.mkv"; done < season02.txt
+while read FILE; do touch "${FILE}.mkv"; done < season03.txt
+while read FILE; do touch "${FILE}.mkv"; done < season04.txt
